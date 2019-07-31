@@ -11,15 +11,20 @@ public class WriteToFile_IO {
         }
 
     }
-    private static void writeUsingFileWriter(String data){
+    public static void writeUsingFileWriter(String data,boolean append){
         File file = new File("/home/murad_isgandar/Desktop/test");
-        try(FileWriter fr = new FileWriter(file)){
+        try(FileWriter fr = new FileWriter(file,append)){
             fr.write(data);
         }catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+    public static void writeUsingFileWriter(String data){
+        writeUsingFileWriter(data,false);
+
+    }
+
     public static void writeUsingBufferedWriterAutoCloseable() throws IOException {
         FileWriter f = new FileWriter("/home/murad_isgandar/Desktop/test");
         try (BufferedWriter bw = new BufferedWriter(f)){
